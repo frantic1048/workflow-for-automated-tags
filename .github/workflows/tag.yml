@@ -1,0 +1,10 @@
+name: Tag
+on:
+  push:
+    tags:
+      - '@hello/**'
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo hello
