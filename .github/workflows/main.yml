@@ -12,8 +12,8 @@ jobs:
       - run: echo check if we have to create a commit.
       - if: ${{ startsWith(github.event.head_commit.message, '[release]') }}
         run: |
-          git config user.email "im@pyonpyon.today"
-          git config user.name "frantic1048"
+          git config --local user.email "npm-publisher@rightcapital.com"
+          git config --local user.name "GitHub Actions[bot]"
           git remote set-url origin "https://${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git"
           git commit --allow-empty -m 'chore(release): applying package updates'
           git tag -a "@hello/action-run_v${{ github.run_number }}.${{ github.run_attempt }}.0" -m "@hello/action-run_v${{ github.run_number }}.${{ github.run_attempt }}.0"
